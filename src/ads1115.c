@@ -7,7 +7,7 @@
 
 static void IRAM_ATTR gpio_isr_handler(void* arg) {
   const bool ret = 1; // dummy value to pass to queue
-  xQueueHandle gpio_evt_queue = (xQueueHandle) arg; // find which queue to write
+  QueueHandle_t gpio_evt_queue = (QueueHandle_t) arg; // find which queue to write
   xQueueSendFromISR(gpio_evt_queue, &ret, NULL);
 }
 
