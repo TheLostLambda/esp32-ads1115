@@ -98,6 +98,9 @@ void ads1115_set_max_ticks(ads1115_t* ads, TickType_t max_ticks); // maximum wai
 int16_t ads1115_get_raw(ads1115_t* ads); // get voltage in bits
 double ads1115_get_voltage(ads1115_t* ads); // get voltage in volts
 
+esp_err_t ads1115_write_register(ads1115_t* ads, ads1115_register_addresses_t reg, uint16_t data);
+esp_err_t ads1115_read_register(ads1115_t* ads, ads1115_register_addresses_t reg, uint8_t* data, uint8_t len);
+
 #endif // ifdef ADS1115_H
 
 #ifdef __cplusplus
