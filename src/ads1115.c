@@ -11,7 +11,7 @@ static void IRAM_ATTR gpio_isr_handler(void* arg) {
   xQueueSendFromISR(gpio_evt_queue, &ret, NULL);
 }
 
-static esp_err_t ads1115_write_register(ads1115_t* ads, ads1115_register_addresses_t reg, uint16_t data) {
+esp_err_t ads1115_write_register(ads1115_t* ads, ads1115_register_addresses_t reg, uint16_t data) {
   i2c_cmd_handle_t cmd;
   esp_err_t ret;
   uint8_t out[2];
@@ -30,7 +30,7 @@ static esp_err_t ads1115_write_register(ads1115_t* ads, ads1115_register_address
   return ret;
 }
 
-static esp_err_t ads1115_read_register(ads1115_t* ads, ads1115_register_addresses_t reg, uint8_t* data, uint8_t len) {
+esp_err_t ads1115_read_register(ads1115_t* ads, ads1115_register_addresses_t reg, uint8_t* data, uint8_t len) {
   i2c_cmd_handle_t cmd;
   esp_err_t ret;
 
